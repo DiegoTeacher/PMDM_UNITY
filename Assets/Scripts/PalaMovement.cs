@@ -6,7 +6,7 @@ public class PalaMovement : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D rb;
-    private float x, y;
+    private float y;
 
     // Start is called before the first frame update
     void Start()
@@ -17,14 +17,12 @@ public class PalaMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
+        transform.Translate(new Vector2(0, y) * speed * Time.deltaTime);
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(x, y) * speed;
+         //rb.velocity = new Vector2(0, y) * speed;
     }
-
-
 }
