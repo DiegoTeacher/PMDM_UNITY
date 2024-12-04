@@ -5,6 +5,8 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public float speed;
+    public AudioClip bounceAudioClip;
+
     private Rigidbody2D rb;
     private Vector2 direction;
     private Vector2 initialPosition;
@@ -36,6 +38,8 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        AudioManager.instance.PlayAudio(bounceAudioClip, "BoingBoing");
+
         // cada vez que ocurra una colision CON LA PALA, reboto
         if(collision.gameObject.GetComponent<PalaMovement>())
         {
@@ -47,7 +51,5 @@ public class Ball : MonoBehaviour
             // solo hay techo o suelo
             direction.y *= -1;
         }
-
-
     }
 }
