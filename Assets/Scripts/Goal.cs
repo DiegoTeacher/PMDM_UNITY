@@ -16,6 +16,8 @@ public class Goal : MonoBehaviour
             int currentScore = GameManager.instance.GetIndexPuntuacion((int)playerIndex);
             GameManager.instance.
                 SetIndexPuntuacion((int)playerIndex, currentScore + 1);
+
+            AdManager.instance.ShowAd();
         }
     }
 }
