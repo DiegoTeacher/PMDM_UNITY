@@ -25,4 +25,9 @@ public class StateMachine : MonoBehaviour
             _currentState = nState;
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        _currentState?.action.DrawGizmos(gameObject);
+    }
 }
